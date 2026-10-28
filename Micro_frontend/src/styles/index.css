@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-bg-900 text-white antialiased;
+    background: linear-gradient(180deg, #051025 0%, #07172a 100%);
+    min-height: 100vh;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(31, 182, 255, 0.5);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(90deg, #1fb6ff, #66e0d5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300;
+    background: linear-gradient(90deg, #3a7bd5, #1fb6ff);
+    color: #012;
+    box-shadow: 0 8px 30px rgba(31, 182, 255, 0.15);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(31, 182, 255, 0.25);
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.78);
+  }
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* Form input */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl text-white text-sm transition-all duration-200;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .form-input:focus {
+    border-color: rgba(31, 182, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    outline: none;
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.35); }
+
+  /* Form select */
+  .form-select {
+    @apply form-input appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+  }
+  .form-select option { background: #07172a; color: #fff; }
+
+  /* Progress step */
+  .step-active   { background: linear-gradient(135deg, #1fb6ff, #3a7bd5); color: #012; }
+  .step-done     { background: rgba(102, 224, 213, 0.2); border-color: #66e0d5; color: #66e0d5; }
+  .step-inactive { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); }
+
+  /* Risk tier badges */
+  .risk-low    { background: rgba(74, 222, 128, 0.12); border: 1px solid rgba(74, 222, 128, 0.3); color: #4ade80; }
+  .risk-medium { background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.3); color: #fbbf24; }
+  .risk-high   { background: rgba(248, 113, 113, 0.12); border: 1px solid rgba(248, 113, 113, 0.3); color: #f87171; }
+
+  /* Orb decorations */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #07172a; }
+::-webkit-scrollbar-thumb { background: rgba(31, 182, 255, 0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(31, 182, 255, 0.45); }

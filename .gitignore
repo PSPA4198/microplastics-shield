@@ -1,0 +1,47 @@
+# Python virtual environment and cache
+venv/
+.venv/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Frontend dependencies and builds
+**/node_modules/
+**/dist/
+**/build/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# Test and coverage files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Python tooling caches
+.mypy_cache/
+.ruff_cache/
+
+# Python build artifacts
+*.egg-info/
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
